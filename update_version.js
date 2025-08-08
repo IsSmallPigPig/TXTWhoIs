@@ -16,7 +16,7 @@ const config = {
     'result.html'
   ],
   versionPattern: /\?v=\d+\.\d+\.\d+/g,
-  currentVersion: '1.0.2',
+  currentVersion: '1.0.3',
   newVersion: ''
 };
 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>身份查询结果</title>
+    <link rel="stylesheet" href="css/style.css?v=1.0.2">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/theme.js?v=1.0.2"></script>
+    <script src="js/background.js?v=1.0.2"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>TXTech 身份核验系统</h1>
+                <p class="logo-subtitle">IDENTITY VERIFICATION</p>
+            </div>
+            <div class="header-controls">
+                <div class="theme-toggle-container">
+                    <button id="theme-toggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <div class="back-btn-container">
+                    <button id="back-btn" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> 返回查询
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="result-section">
+            <div class="container result-container">
+                <h2>查询结果</h2>
+                <div class="info-card" id="info-card">
+                    <div class="card-header">
+                        <div class="profile-container">
+                            <div class="profile-banner">
+                                <div class="profile-img-container">
+                                    <div class="profile-img">
+                                        <img id="profile-photo" src="" alt="照片">
+                                    </div>
+                                </div>
+                                <div class="profile-banner-bg"></div>
+                                <div class="profile-info">
+                                    <h3 id="card-owner">卡片所有者</h3>
+                                    <p id="position">职务</p>
+                                    <div class="id-number">学号: <span id="id-number">--</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">人员性别</div>
+                                <div id="card-number">--</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">执行工作</div>
+                                <div id="current-job">--</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">证件期限</div>
+                                <div id="validity-period">--</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">绑定卡片</div>
+                                <div id="bound-card">--</div>
+                            </div>
+                        </div>
+                        <!-- 已删除二维码验证栏 -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="valid-stamp">
+                            <div class="stamp-text">已验证</div>
+                        </div>
+                        <div class="timestamp">
+                            <i class="far fa-clock"></i> <span id="query-time"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments-section" id="comments-section">
+    <h3>评论区</h3>
+    <!-- Waline 评论系统容器 -->
+    <div id="waline-container"></div>
+    <!-- Waline 评论系统脚本 -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+    <script>
+        // 初始化 Waline
+        function initWaline() {
+            console.log('Initializing Waline...');
+            try {
+                // 检查当前主题
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const walineTheme = currentTheme === 'dark' ? 'dark' : 'light';
+                console.log('Current theme:', currentTheme, 'Waline theme:', walineTheme);
+
+                // 初始化参数
+                const walineConfig = {
+                    el: '#waline-container',
+                    serverURL: 'https://zzzauto.netlify.app/.netlify/functions/comment',
+                    placeholder: '写下您的评论...',
+                    path: location.pathname,
+                    theme: walineTheme,
+                    // 添加调试模式
+                    debug: true
+                };
+                console.log('Waline configuration:', walineConfig);
+
+                // 检查容器元素
+                const container = document.querySelector(walineConfig.el);
+                if (!container) {
+                    console.error('Waline container not found:', walineConfig.el);
+                    return;
+                }
+                console.log('Waline container found:', container);
+
+                // 初始化 Waline
+                const walineInstance = Waline.init(walineConfig);
+                console.log('Waline initialized successfully:', walineInstance);
+            } catch (error) {
+                console.error('Error initializing Waline:', error);
+                // 显示错误信息给用户
+                const container = document.querySelector('#waline-container');
+                if (container) {
+                    container.innerHTML = `<div class='waline-error'>评论系统加载失败: ${error.message}</div>`;
+                }
+            }
+        }
+
+        // 页面加载完成后初始化 Waline
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded event fired');
+            // 确保主题已初始化
+            initThemeImmediately();
+            // 延迟初始化 Waline，确保页面完全加载
+            setTimeout(initWaline, 500);
+        });
+    </script>
+</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer sci-fi-footer">
+        <div class="container footer-container">
+            <p class="footer-text">&copy; 2025 TXTech 身份核验系统. 保留所有权利.</p>
+            <div class="tech-line"></div>
+        </div>
+    </footer>
+
+    <script>initThemeImmediately();</script>
+    <script src="js/result.js?v=1.0.2"></script>
+</body>
+</html>

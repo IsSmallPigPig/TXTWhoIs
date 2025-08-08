@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TXTech 身份核验系统</title>
+    <link rel="stylesheet" href="css/style.css?v=1.0.2">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/theme.js?v=1.0.2"></script>
+    <script src="js/background.js?v=1.0.2"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>TXTech 身份核验系统</h1>
+                <p class="logo-subtitle">IDENTITY VERIFICATION</p>
+            </div>
+            <div class="header-controls">
+                <div class="theme-toggle-container">
+                    <button id="theme-toggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+<main class="main wrapper">
+        <section class="search-section">
+            <div class="container search-container">
+                <h2>TXTech 身份查询</h2>
+                <form class="search-form" id="search-form">
+                    <div class="form-group">
+                        <div class="search-input-container">
+                            <input type="text" class="search-input" id="search-input" placeholder=" " required>
+                            <label for="search-input" class="input-label">请输入姓名或编号</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-search" id="search-btn">
+                        <i class="fas fa-search"></i> 查询
+                    </button>
+                    <p class="search-hint">输入姓名、ID或绑定卡片编号进行查询</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">TXTech 身份核验系统</div>
+            <p class="footer-text">&copy; 2025 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js?v=1.0.2"></script>
+</body>
+</html>

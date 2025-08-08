@@ -1,0 +1,38 @@
+{
+    "config": {
+        "backgroundImage": "images/background.webp",
+        "darkBackgroundImage": "images/background-dark.webp"
+    },
+    "users": [
+        {
+            "id": "1240723",
+            "name": "欧阳文俊",
+            "position": "技术部部长",
+            "currentJob": "管理部门和部门服务",
+            "validityPeriod": "2025-09-01 至 2026-09-01",
+            "boundCard": "A2025001",
+            "cardNumber": "男",
+            "photo": "images/SmallPigPig.jpg"
+        },
+        {
+            "id": "1240729",
+            "name": "伍逸瀚",
+            "position": "技术部副部长",
+            "currentJob": "管理部门和部门服务",
+            "validityPeriod": "2025-09-01 至 2026-09-01",
+            "boundCard": "A2025002",
+            "cardNumber": "男",
+            "photo": "images/WYH.jpg"
+        },
+        {
+            "id": "003",
+            "name": "王五",
+            "position": "UI设计师",
+            "currentJob": "设计新界面",
+            "validityPeriod": "2023-03-10 至 2023-09-10",
+            "boundCard": "员工卡-A003",
+            "cardNumber": "CARD-003",
+            "photo": "images/wang-wu.jpg"
+        }
+    ]
+}
